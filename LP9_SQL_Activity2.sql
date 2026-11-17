@@ -48,3 +48,14 @@ VALUES
 
 SELECT * FROM passengers;
 SELECT * FROM bookings;
+
+SELECT
+    p.passenger_id,
+    p.name       AS passenger_name,
+    b.class_tier,
+    p.destination,
+    p.travel_date
+FROM passengers AS p
+INNER JOIN bookings AS b ON p.passenger_id = b.passenger_id
+WHERE b.class_tier IN ('Business', 'First')
+ORDER BY b.class_tier DESC, p.name;
