@@ -29,3 +29,22 @@ CREATE TABLE bookings (
     FOREIGN KEY (passenger_id) REFERENCES passengers (passenger_id)
         ON UPDATE CASCADE
 );
+
+INSERT INTO passengers (passenger_id, name, current_location, destination, travel_date)
+VALUES
+    (1, 'Amina Diallo',   'Kigali, Rwanda',              'Nairobi, Kenya',               '2026-12-05'),
+    (2, 'Kwame Mensah',   'Accra, Ghana',                'London, United Kingdom',       '2026-12-10'),
+    (3, 'Zanele Nkosi',   'Johannesburg, South Africa',  'Dubai, United Arab Emirates',  '2026-12-15'),
+    (4, 'Tunde Okafor',   'Lagos, Nigeria',              'Paris, France',                '2026-11-28');
+
+INSERT INTO bookings
+    (booking_id, passenger_id, class_tier, seat_preference,
+     lounge_pass_code, suite_number, chauffeur_service)
+VALUES
+    (1, 1, 'Economy',  'Window', 'LP-ECO-3310', NULL,    0),
+    (2, 2, 'Business', 'Aisle',  'LP-BUS-7742', NULL,    0),
+    (3, 3, 'First',    'Window', 'LP-FST-9001', 'SUI-12A', 1),
+    (4, 4, 'Economy',  'Aisle',  NULL,          NULL,    0);
+
+SELECT * FROM passengers;
+SELECT * FROM bookings;
