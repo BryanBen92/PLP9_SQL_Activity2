@@ -59,3 +59,16 @@ FROM passengers AS p
 INNER JOIN bookings AS b ON p.passenger_id = b.passenger_id
 WHERE b.class_tier IN ('Business', 'First')
 ORDER BY b.class_tier DESC, p.name;
+
+SELECT booking_id, passenger_id, seat_preference
+FROM bookings
+WHERE passenger_id = 2;
+
+UPDATE bookings
+SET seat_preference = 'Window'
+WHERE passenger_id = 2;
+
+SELECT booking_id, passenger_id, seat_preference
+FROM bookings
+WHERE passenger_id = 2;
+
